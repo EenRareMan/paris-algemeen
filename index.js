@@ -1,5 +1,6 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
+const levelFile = require("./data/levels.json");
 
 const fs = require("fs");
 
@@ -52,11 +53,11 @@ bot.on("guildMemberAdd", member => {
     member.addRole(role1);
     member.addRole(role2);
 
-      const channelWelkom = member.guild.channels.find("name", "logs");
+    const channelWelkom = member.guild.channels.find("name", "logs");
 
-      if(!channelWelkom) return;
+    if (!channelWelkom) return;
 
-      channelWelkom.send(`${member} is gejoind!`);
+    channelWelkom.send(`${member} is gejoind!`);
 
 
 });
@@ -88,6 +89,50 @@ bot.on("message", async message => {
 
     if (!message.content.startsWith(prefix)) return;
     if (commands) commands.run(bot, message, arguments, options);
+
+
+    var randomXp = Math.floor(Math.random(1) * 15) + 1;
+
+    var idUser = message.author.id;
+
+    if (!levelFile[idUser]) {
+
+        levelFile[idUser] = {
+
+            xp: 0,
+            level: 0
+
+        }
+
+    }
+
+    levelFile[idUser].xp += randomXp;
+
+    var levelUser = levelFile[idUser].level;
+    var xpUser = levelFile[idUser].xp;
+    var nextLevelXp = levelUser * 300;
+
+    if (nextLevelXp === 0) nextLevelXp = 100;
+
+    if (xpUser >= nextLevelXp) {
+
+        levelFile[idUser].level += 1;
+
+        fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
+
+            if (err) console.log(err);
+
+        });
+
+        var levelEmde = new discord.RichEmbed()
+        .setDescription("**Level hoger**")
+        .setColor("#ee0000")
+        .addField("Nieuw level:", levelFile[idUser].level);
+
+        message.channel.send(levelEmde);
+    }
+
+
 });
 
 
