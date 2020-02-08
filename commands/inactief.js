@@ -8,7 +8,8 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("**Inactief**")
     .addField("Persoon", message.author)
     .addField("Begin datum", args[0])
-    .addField("Eind datum", args[1]);
+    .addField("Eind datum", args[1])
+    .addField("Reden: ", message -args[1], -args[0])
 
     var inactiefChannel = message.guild.channels.find(`name`, "afmeldingen");
     if (!inactiefChannel) return message.guild.send("Het kanaal is niet gevonden.");
