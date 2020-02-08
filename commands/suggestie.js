@@ -24,6 +24,8 @@ module.exports.run = async (bot, message, args) => {
         embedMessage.react('👍');
         embedMessage.react('👎');
     });
+
+    message.channel.send("Je suggestie is toegevoegd, misschien voeren we jouw suggestie wel uit!");
  
     // Einde.
  
