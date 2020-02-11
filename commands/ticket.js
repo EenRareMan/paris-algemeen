@@ -65,6 +65,13 @@ module.exports.run = async (bot, message, args) => {
                 "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
             });
 
+            settedParent.overwritePermissions(message.guild.roles.find('name', "OC ||Réalisateur"), {
+
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
+            });
+
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hoi, " + message.author.username.toString())
                 .setDescription("Dit is jouw ticket hier kan je jouw vraag/bericht inzetten. \n Het support team helpt je zo snel mogelijk.")
