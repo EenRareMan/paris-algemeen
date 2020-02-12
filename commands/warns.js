@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
 
     } else {
 
-        message.user.send("Je bent gewarned in Paris Roleplay.")
+        message.mentions.first.send("Je bent gewarned in Paris Roleplay.")
 
     }
 
