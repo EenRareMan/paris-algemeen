@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Aantal warns", warns[user.id].warns)
         .addField("Reden", reason);
 
-    var warnChannel = message.guild.channels.find(`name`, "logs");
+    var warnChannel = message.guild.channels.find(`name`, "normale-warns");
     if (!warnChannel) return message.guild.send("Kan het kanaal niet vinden");
 
     warnChannel.send(unwarnEmbed);

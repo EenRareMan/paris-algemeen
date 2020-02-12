@@ -51,6 +51,10 @@ module.exports.run = async (bot, message, args) => {
         message.guild.member(user).kick(reason);
         warnkickChannel.send(`${user} is gekickt wegens dat hij 3 warns had.`);
 
+    } else {
+
+        message.user.send("Je bent gewarned in Paris Roleplay.")
+
     }
 
     message.delete;
