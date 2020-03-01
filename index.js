@@ -45,7 +45,7 @@ bot.on("guildMemberAdd", member => {
 
     var role = member.guild.roles.find("name", "Burger");
     var role1 = member.guild.roles.find("name", "Verified");
-    var role2 = member.guild.roles.find("name", "Mentions Trainingen");
+    var role2 = member.guild.roles.find("name", "Mentions-Trainingen");
 
     if (!role) return;
 
