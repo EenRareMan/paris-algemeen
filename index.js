@@ -53,11 +53,11 @@ bot.on("guildMemberAdd", member => {
     member.addRole(role1);
     member.addRole(role2);
 
-    const channelWelkom = member.guild.channels.find("name", "logs");
+    const channelWelkom = member.guild.channels.find("name", "welkom");
 
     if (!channelWelkom) return;
 
-    channelWelkom.send(`${member} is gejoind!`);
+    channelWelkom.send(`${member} is gejoind! Lees zeker goed de regels door in #regels`);
 
 
 });
