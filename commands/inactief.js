@@ -4,15 +4,38 @@ module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Jij kan dit niet doen.");
 
-    var inactiefEmbed = new discord.RichEmbed()
-    .setDescription("**Inactief**")
-    .addField("Persoon", message.author)
-    .addField("Begin datum", args[0])
-    .addField("Eind datum", args[1]);
-   // .addField("Reden: ", message -args[1], -args[0]);
+    var splitser = "||";
 
-    var inactiefChannel = message.guild.channels.find(`name`, "afmeldingen");
-    if (!inactiefChannel) return message.guild.send("Het kanaal is niet gevonden.");
+    if (args[0] == null) {
+
+        var useMessage = new discord.RichEmbed()
+            .setTitle("**Gebruik**")
+            .setColor("#00ee00")
+            .setDescription(`Maak een inactiefheid door gebruik te maken van: \n -inactief van ${splitser} tot ${splitser} reden`);
+
+        return message.channel.send(useMessage);
+
+    }
+
+    args = args.join(" ").spli(splitser);
+
+    var options = {
+
+        van: args[0] || "Niet gegeven",
+        tot: args[1] || "Niet gegeven",
+        reden: args[2] || "Niet gegeven"
+
+    }
+
+    var inactiefer = message.author;
+
+    var inactiefEmbed = new discord.RichEmbed()
+        .setTitle("Inactief")
+        .setColor("#ee00ee")
+        .setDescription(`Naam: ${inactiefer} \n Van: ${options.van} \n Tot: ${options.tot} \n Reden: ${options.reden}`);
+
+    var inactiefChannel = message.guild.channels.find(`name`, "inactief");
+    if(!inactiefChannel) return; 
 
     inactiefChannel.send(inactiefEmbed);
 
