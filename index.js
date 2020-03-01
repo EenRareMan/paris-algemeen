@@ -57,7 +57,7 @@ bot.on("guildMemberAdd", member => {
 
     if (!channelWelkom) return;
 
-    channelWelkom.send(`${member} is gejoind! Lees zeker goed de regels door in #regels`);
+    channelWelkom.send(`${member} is gejoind! Lees zeker goed de regels door in #regels.`);
 
 
 });
