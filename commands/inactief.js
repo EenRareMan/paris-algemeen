@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
 
     var inactiefEmbed = new discord.RichEmbed()
         .setTitle("Inactief")
-        .setColor("#ee00ee")
+        .setColor("#00ee00")
         .setDescription(`Naam: ${inactiefer} \n Van: ${options.van} \n Tot: ${options.tot} \n Reden: ${options.reden}`);
 
     var inactiefChannel = message.guild.channels.find(`name`, "inactief");
