@@ -59,7 +59,7 @@ bot.on("guildMemberAdd", member => {
 
     channelWelkom.send(`${member} is gejoind! Lees zeker goed de regels door in #regels.`);
 
-    member.message.send(":flag_nl: Welkom in Paris Roleplay. Wij zijn de 1e roleplay server van Parijs. Als u vragen hebt dan kunt u altijd een ticket maken met -new in bot commands. Lees goed het informatie kanaal door en de regels. Als je in de groepen wilt doe je -groepen in bot commands. \n\n :flag_fr: Bienvenue à Paris Roleplay. Nous sommes le 1er serveur de jeux de rôle à Paris. Si vous avez des questions, vous pouvez toujours créer un ticket avec -new dans les commandes bot. Lisez attentivement le canal d'information et les règles. Si vous souhaitez rejoindre les groupes, faites des groupes dans les commandes bot.");
+    member.message(":flag_nl: Welkom in Paris Roleplay. Wij zijn de 1e roleplay server van Parijs. Als u vragen hebt dan kunt u altijd een ticket maken met -new in bot commands. Lees goed het informatie kanaal door en de regels. Als je in de groepen wilt doe je -groepen in bot commands. \n\n :flag_fr: Bienvenue à Paris Roleplay. Nous sommes le 1er serveur de jeux de rôle à Paris. Si vous avez des questions, vous pouvez toujours créer un ticket avec -new dans les commandes bot. Lisez attentivement le canal d'information et les règles. Si vous souhaitez rejoindre les groupes, faites des groupes dans les commandes bot.");
 
 
 });
