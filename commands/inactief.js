@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
     }
 
-    args = args.join(" ").spli(splitser);
+    args = args.join(" ").split(splitser);
 
     var options = {
 
