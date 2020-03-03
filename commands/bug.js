@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         var bug = args.join(" ");
      
         // Kijk na als er een idee is meegegeven.
-        if (!bug) return message.channel.send("Geen Idee meegegeven gelieve een idee mee te geven.");
+        if (!bug) return message.channel.send("Geen bug meegegeven gelieve een bug mee te geven.");
      
         // Maak het embed aan.
         var bugEmbed = new discord.RichEmbed()
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
      
         // Vind het kanaal.
         var bugChannel = message.guild.channels.find(`name`, "bugs");
-        if (!ideeChannel) return message.guild.send("Kan het kanaal niet vinden");
+        if (!bugChannel) return message.guild.send("Kan het kanaal niet vinden");
      
         // Verzend het bericht en voeg er reacties aan toe.
         bugChannel.send(bugEmbed)
