@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     // Maak het embed aan.
     var ideeEmbed = new discord.RichEmbed()
         .setTitle("Nieuwe suggestie")
-        .setColor("#000000")
+        .setColor('RANDOM')
         .addField("Idee: ", idee)
         .addField("Ingezonden door: ", message.author);
  
