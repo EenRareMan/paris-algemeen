@@ -1,12 +1,36 @@
-const botConfig = require("../botconfig.json");
-
-module.exports.run = async (bot, message, args) => {
-
-    return message.channel.send("**Commands** \n \n -help - Krijg dit menu \n -play - Speel muziek af \n -leave - laat de bot leaven van het spraakkanaal \n - skip - Skip een liedje \n -queue - Bekijk de wachtlijst van de liedjes \n -report - Report een geruiker \n -suggestie - Dien een idee in \n -ticket - Maak een ticket aan \n -user-info - krijg de info van jou \n -help - krijg dit menu");
-
-}
-
-module.exports.help = {
-    name: "help",
-    description: "Geeft dit menu"
-}
+var commandsList = [];
+ 
+    bot.commands.forEach(command => {
+ 
+        var item = {
+ 
+            name: command.help.name,
+            description: command.help.description,
+            // category: command.help.category
+ 
+        }
+ 
+        commandsList.push(item);
+ 
+    });
+ 
+    // console.log(commandsList);
+ 
+    var prefix = botConfig.prefix;
+    var response = "";
+ 
+    for (var i = 0; i < commandsList.length; i++) {
+ 
+        response += `${prefix}${commandsList[i]["name"]} - ${commandsList[i]["description"]} \r\n`;
+ 
+    }
+ 
+    message.author.send(response).then(() => {
+ 
+        message.channel.send("Al de commando's staan in je privé berichten! :mailbox_with_mail:");
+ 
+    }).catch(() => {
+ 
+        message.channel.send("Je privé berichten staan uit geschakeld, je hebt geen hulp ontvangen");
+ 
+    });
