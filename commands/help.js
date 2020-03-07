@@ -1,4 +1,8 @@
-var commandsList = [];
+const discord = require("discord.js");
+
+module.exports.run = async (bot, message, args) => {
+
+    var commandsList = [];
  
     bot.commands.forEach(command => {
  
@@ -34,3 +38,10 @@ var commandsList = [];
         message.channel.send("Je privé berichten staan uit geschakeld, je hebt geen hulp ontvangen");
  
     });
+
+}
+
+module.exports.help = {
+    name: "help",
+    description: "Krijg dit menu."
+}

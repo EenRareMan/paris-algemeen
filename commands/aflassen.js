@@ -23,5 +23,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
     name: "aflassen",
-    description: ""
+    description: "Las een training af."
 }

@@ -10,5 +10,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
     name: "spolice",
-    description: ""
+    description: "Krijg de vragen voor politie soli."
 }
