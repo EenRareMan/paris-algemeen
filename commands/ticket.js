@@ -72,9 +72,12 @@ module.exports.run = async (bot, message, args) => {
                 "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
             });
 
+            var reason = args.join(" ");
+
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hoi, " + message.author.username.toString())
                 .setDescription("Dit is jouw ticket hier kan je jouw vraag/bericht inzetten. \n Het support team helpt je zo snel mogelijk.")
+                .addField("Beschrijving", reason)
                 .setFooter("Support service Paris.");
 
             settedParent.send(embedParent);
